@@ -276,7 +276,7 @@ QSize TagsLineEdit::sizeHint() const {
     return (style()->sizeFromContents(
             QStyle::CT_LineEdit,
             &opt,
-            rect.size().expandedTo(QApplication::globalStrut()),
+            rect.size().expandedTo(QApplication::activeWindow()->size()),
             this));
 }
 
@@ -295,7 +295,7 @@ QSize TagsLineEdit::minimumSizeHint() const {
     return (style()->sizeFromContents(
             QStyle::CT_LineEdit,
             &opt,
-            rect.size().expandedTo(QApplication::globalStrut()),
+            rect.size().expandedTo(QApplication::activeWindow()->size()),
             this));
 }
 

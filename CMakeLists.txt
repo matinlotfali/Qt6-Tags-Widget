@@ -19,14 +19,11 @@ endif()
 # 3rd party
 
 if(NOT ${PROJECT_NAME}_sub)
-    find_package(Qt5Widgets 5.9.5 QUIET REQUIRED)
+    find_package(Qt6Widgets QUIET REQUIRED)
 endif()
 
-if(NOT TARGET Qt5::Widgets)
-    message(FATAL_ERROR "Qt5::Widgets is required dependency")
-endif()
-if(Qt5Widgets_VERSION VERSION_LESS 5.9.5)
-    message(FATAL_ERROR "Minimum supported Qt5 version is 5.9.5")
+if(NOT TARGET Qt6::Widgets)
+    message(FATAL_ERROR "Qt6::Widgets is required dependency")
 endif()
 
 # Target
@@ -54,7 +51,7 @@ target_include_directories(${PROJECT_NAME}
     $<INSTALL_INTERFACE:include>
 )
 
-target_link_libraries(${PROJECT_NAME} PUBLIC Qt5::Widgets)
+target_link_libraries(${PROJECT_NAME} PUBLIC Qt6::Widgets)
 
 # compile options/definitions
 if(NOT ${PROJECT_NAME}_sub)
